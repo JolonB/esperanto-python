@@ -12,7 +12,7 @@ except ImportError:
 from ideas import import_hook
 from ideas.examples import french
 
-from . import hebrew_data
+from . import esperanto_data
 
 try:
     from ddebug import dd
@@ -48,7 +48,7 @@ def transform_source(source: str, module=None, callback_params=None, **_kwargs):
     'This function is called by the import hook loader and is used as a
     wrapper for the function where the real transformation is performed.'
 
-    transform source from hebrew keywords to english keywords using ideas.examples.french.french_to_english.
+    transform source from esperanto keywords to english keywords using ideas.examples.french.french_to_english.
 
     Args:
         source (str): source string of the file
@@ -73,34 +73,34 @@ def transform_source(source: str, module=None, callback_params=None, **_kwargs):
 
 french.transform_source = transform_source
 is_setup = False
-hebrew_builtins = {}
+esperanto_builtins = {}
 
 
 def setup(with_excepthook=True):
     """
-    set excepthook,load hebrew_keywords.json and hebrew_builtins.json to fr_to_py dict (keywords) and hebrew_builtins (builtins) dict
+    set excepthook,load esperanto_keywords.json and esperanto_builtins.json to fr_to_py dict (keywords) and esperanto_builtins (builtins) dict
     """
     sys.excepthook = error_hook.excepthook
     cdir = os.path.dirname(__file__)
 
-    """with open(os.path.join(cdir, "hebrew_keywords.json")) as io:
+    """with open(os.path.join(cdir, "esperanto_keywords.json")) as io:
         french.fr_to_py = json.load(io)
-    with open(os.path.join(cdir, "hebrew_builtins.json")) as io:
-        str_hebrew_builtins: dict = json.load(io)"""
-    str_hebrew_builtins = hebrew_data.hebrew_builtins
-    french.fr_to_py = hebrew_data.hebrew_keywords
-    for k, v in str_hebrew_builtins.items():
+    with open(os.path.join(cdir, "esperanto_builtins.json")) as io:
+        str_esperanto_builtins: dict = json.load(io)"""
+    str_esperanto_builtins = esperanto_data.esperanto_builtins
+    french.fr_to_py = esperanto_data.esperanto_keywords
+    for k, v in str_esperanto_builtins.items():
         k: str
         v: str
         if hasattr(builtins, v):
-            hebrew_builtins.update({k: getattr(builtins, v)})
+            esperanto_builtins.update({k: getattr(builtins, v)})
         else:
             logging.warning(f"cannot find key in builtins: '{v}'")
 
 
 def exec_code(code, filename, globals_: dict, module, callback_params):  # noqa
     """
-    execute code with hebrew_builtins+normal_builtins
+    execute code with esperanto_builtins+normal_builtins
 
     Args:
         code (codeType): code object for exec
@@ -111,7 +111,7 @@ def exec_code(code, filename, globals_: dict, module, callback_params):  # noqa
     """
     globals_.update(useful_globals)
     all_builtins = module.__dict__
-    all_builtins.update(hebrew_builtins)
+    all_builtins.update(esperanto_builtins)
 
     exec(code, globals_, all_builtins)
 
@@ -126,21 +126,21 @@ def create_hook(run_module: bool = False, show_original: bool = False, show_tran
         run_module (bool): if sys.argv[1] is exist - run the module sys.argv[1] with the hook
         show_original (bool): show original source
         show_transformed (bool): show transformed source
-        verbose_finder (bool): verbose the .hepy finder - print every search and find
+        verbose_finder (bool): verbose the .eopy finder - print every search and find
         console (bool): the default value is (True if commandline argument < 0). if this True and `run_module` is True - start repl with the hook
 
     Returns :
         ideas.import_hook.IdeasMetaFinder: the hook
 
     """
-    if not hebrew_builtins:
+    if not esperanto_builtins:
         setup()
 
     hook = import_hook.create_hook(
         transform_source=french.transform_source,
         callback_params={"show_original": show_original, "show_transformed": show_transformed},
         hook_name=__name__,
-        extensions=[".hepy"] if not console else None,
+        extensions=[".eopy"] if not console else None,
         verbose_finder=verbose_finder,
         # source_init=lambda: '__hook__="HEPY"\n',
         exec_=exec_code
@@ -150,13 +150,13 @@ def create_hook(run_module: bool = False, show_original: bool = False, show_tran
         if not console:
             if os.path.splitext(sys.argv[1])[1] == ".py":
                 print("note: you are run .py as main...")
-                print("החלפו את הסיומת ל.hepy")
+                print("החלפו את הסיומת ל.eopy")
                 exit(1)
             #
             module = None
             if os.path.exists(sys.argv[1]):
                 module = os.path.splitext(sys.argv[1])[0]
-            elif os.path.exists(sys.argv[1] + ".hepy"):
+            elif os.path.exists(sys.argv[1] + ".eopy"):
                 module = sys.argv[1]
             if not module:
                 print("file not found:", sys.argv[1])

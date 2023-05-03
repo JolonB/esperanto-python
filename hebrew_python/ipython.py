@@ -7,10 +7,10 @@ from . import hook
 from functools import partial
 
 
-class HebrewIPython:
+class EsperantoIPython:
     def __init__(self, shell):
         """
-        IPython extension for write IPython (or jupyter) scripts in hebrew
+        IPython extension for write IPython (or jupyter) scripts in esperanto
 
         Args:
             shell (InteractiveShell): current IPython shell
@@ -41,26 +41,26 @@ class HebrewIPython:
             return False  # Probably standard Python interpreter
 
     @staticmethod
-    def hebrew2py(lines: str) -> list:
+    def esperanto2py(lines: str) -> list:
         """
-        convert HebrewPython keywords to normal Python keywords.
+        convert EsperantoPython keywords to normal Python keywords.
 
         show the original and transformed if the first line start with "# HEPY:SHOW".
 
         Args:
-            lines: list of lines with HebrewPython keywords
+            lines: list of lines with EsperantoPython keywords
 
         Returns:
             list:list of lines with normal python keywords
 
         """
         callback_params = None
-        hepy_sow = False
+        eopy_sow = False
         if lines:
             if lines[0].upper().startswith("# HEPY:SHOW"):
-                hepy_sow = True
+                eopy_sow = True
         lines = list(map(partial(hook.transform_source), lines))
-        if hepy_sow:
+        if eopy_sow:
             hook.french.print_info("Transformed", ''.join(lines))
         # return hook.transform_source('\n'.join(lines), callback_params=callback_params).split("\n")
         return lines
@@ -82,7 +82,7 @@ class HebrewIPython:
 
     def load(self):
         """
-        load the HebrewIPython extension by update IPython shell functions and objects
+        load the EsperantoIPython extension by update IPython shell functions and objects
         """
         # functions to replace:
         self.ip.showtraceback = self.showtraceback
@@ -90,47 +90,47 @@ class HebrewIPython:
 
         # objects to modify:
         # self._old(self.ip.input_transformers_cleanup)
-        self.ip.input_transformers_cleanup.append(self.hebrew2py)
+        self.ip.input_transformers_cleanup.append(self.esperanto2py)
         # self._old(self.ip.user_global_ns)
         self.ip.user_global_ns.update(hook.useful_globals)
         #
-        self.ip.builtin_trap.auto_builtins.update(hook.hebrew_builtins)
+        self.ip.builtin_trap.auto_builtins.update(hook.esperanto_builtins)
 
     def unload(self):
         self.ip.showtraceback = self.old_showtraceback
-        if self.hebrew2py in self.ip.input_transformers_cleanup:
-            self.ip.input_transformers_cleanup.remove(self.hebrew2py)
+        if self.esperanto2py in self.ip.input_transformers_cleanup:
+            self.ip.input_transformers_cleanup.remove(self.esperanto2py)
         for k in hook.useful_globals.keys():
             self.ip.user_global_ns.pop(k, None)
         self.ip.builtin_trap.auto_builtins = self.old_auto_builtins
 
 
-hepy_s = []
+eopy_s = []
 
 
 def load_ipython_extension(shell):
     """
-    the function ipython call on `%load_ext hebrew_python`.
+    the function ipython call on `%load_ext esperanto_python`.
 
-    init HebrewIPython class and load the HebrewIPython extension with HebrewIPython.load
+    init EsperantoIPython class and load the EsperantoIPython extension with EsperantoIPython.load
 
     Args:
         shell (InteractiveShell): ipython shell
     """
-    hepy = HebrewIPython(shell)
-    hepy.load()
-    hepy_s.append(hepy)
+    eopy = EsperantoIPython(shell)
+    eopy.load()
+    eopy_s.append(eopy)
 
 
 def unload_ipython_extension(shell):
     """
-    the function ipython call on `%unload_ext hebrew_python`.
+    the function ipython call on `%unload_ext esperanto_python`.
 
-    unload the HebrewIPython extension by HebrewIPython.unload
+    unload the EsperantoIPython extension by EsperantoIPython.unload
 
     Args:
          shell (InteractiveShell): ipython shell
 
     """
-    for hepy in hepy_s:
-        hepy.unload()
+    for eopy in eopy_s:
+        eopy.unload()

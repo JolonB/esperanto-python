@@ -1,21 +1,21 @@
 # functions:
-hebrew_builtins = {
+esperanto_builtins = {
     # numbers
-    "מוחלט": "abs",
-    "הכל": "all",
-    "אחד": "any",  # not sure about this translate: 'אחד' mean '1' in hebrew.
+    "abs": "abs",
+    "ĉio": "all",
+    "io": "any",
 
     # list
-    "אורך": "len",
-    "מינימום": "min",
-    "מקסימום": "max",
-    "הפוך": 'reversed',
-    "מניה":"enumerate",
-    "מפה":"map",
+    "longo": "len",
+    "min": "min",
+    "maks": "max",
+    "inversa": 'reversed',
+    "nombri": "enumerate",
+    "mapi": "map",
 
     # std
-    "הראה": "print",
-    "קלט": "input",
+    "presi": "print",
+    "enigo": "input",
 
     # errors
     "שגיאת_ייבוא": "ImportError",
@@ -26,39 +26,39 @@ hebrew_builtins = {
     
 
     # strings
-    'יצג': 'repr',
-    "בצע": "exec",
-    "פתח":"open"
+    'repr': 'repr',  # TODO is this the best translation?
+    "ekzek": "exec",
+    "malfermi": "open"
 }
 
 # keywords:
-hebrew_keywords = {
+esperanto_keywords = {
     "בנוי":
-    "hebrew_python",  # TODO : I want to create another module for this.
+    "esperanto_python",  # TODO : I want to create another module for this.
 
     # if and booleans:
-    "אם": "if",
-    "אמת": "True",
-    "שקר": "False",
-    "וגם": "and",
-    "לא": "not",
-    "הוא": "is",
+    "se": "if",
+    "Vera": "True",
+    "Malvera": "False",
+    "kaj": "and",
+    "ne": "not",
+    "estas": "is",
     "אחרת": "else",
     "אחרת_אם": "elif",  # אחרתאם ?
-    "או": "or",
+    "aŭ": "or",
 
     # loops
     "לכל": "for",
-    "בתוך": "in",
-    "טווח": "range",
+    "en": "in",
+    "intervalo": "range",  # atingopovo?
     "צא": "break",
-    "בעוד": "while",
+    "dum": "while",
     "המשך": "continue",
 
     # types:
     "רשימה": "list",
-    "שלם": "int",
-    "צף": "float",
+    "entjero": "int",  # just "ent"?
+    "glitkomo": "float",  # just "glit"?
     "כלום": "None",
     "בוליאני": "bool",
     "מחרוזת":"str",

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "esperanto_python"
-version = "0.1.7"
-description = "write python in Hebrew"
+version = "0.1.0"
+description = "write python in Esperanto"
 authors = ["JolonB <jolon.behrent@gmail.com>"]
 license = "BSD-4-Clause"
 readme = "README.md"

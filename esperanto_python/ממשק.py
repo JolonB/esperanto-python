@@ -3,7 +3,7 @@ import PySimpleGUI.PySimpleGUI as basic
 
 basic._refresh_debugger = lambda *args, **kwargs: False  # disable PySimpleGUI debugger
 
-hebrew_kwargs = {
+esperanto_kwargs = {
     "מפתח": "key"
 }
 
@@ -13,8 +13,8 @@ def wraps(elem):
     class element(elem):
 
         def __init__(self, *args, **kwargs):
-            for k, v in hebrew_kwargs.items():
-                if kwargs.get(k, None):  # there is one of hebrew_kwargs
+            for k, v in esperanto_kwargs.items():
+                if kwargs.get(k, None):  # there is one of esperanto_kwargs
                     kwargs[v] = kwargs[k]
                     del kwargs[k]
             super(element, self).__init__(*args, **kwargs)

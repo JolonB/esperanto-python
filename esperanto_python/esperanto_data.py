@@ -4,38 +4,31 @@ esperanto_builtins = {
     "abs": "abs",
     "ĉio": "all",
     "io": "any",
-
     # list
     "longo": "len",
     "min": "min",
     "maks": "max",
-    "inversa": 'reversed',
+    "inversa": "reversed",
     "nombri": "enumerate",
     "mapi": "map",
-
     # std
     "presi": "print",
     "enigo": "input",
-
     # errors
     "ImportadoEraro": "ImportError",
     "NomoEraro": "NameError",
     "PermesoEraro": "PermissionError",
-    "Escepto":"Exception",
-    "DosieroNeTrovitaEraro":"FileNotFoundError",
-    
-
+    "Escepto": "Exception",
+    "DosieroNeTrovitaEraro": "FileNotFoundError",
     # strings
-    'repr': 'repr',  # TODO is this the best translation?
+    "repr": "repr",  # TODO is this the best translation?
     "ekzek": "exec",
-    "malfermi": "open"
+    "malfermi": "open",
 }
 
 # keywords:
 esperanto_keywords = {
-    "בנוי":  # "built"/"designed"
-    "esperanto_python",  # TODO : I want to create another module for this.
-
+    "pitono": "esperanto_python",
     # if and booleans:
     "se": "if",
     "Vera": "True",
@@ -46,15 +39,13 @@ esperanto_keywords = {
     "alie": "else",
     "alse": "elif",  # אחרתאם ?
     "aŭ": "or",
-
     # loops
     "por": "for",
     "en": "in",
     "intervalo": "range",  # atingopovo?
-    "צא": "break",
+    "interrompi": "break",
     "dum": "while",
-    "daŭrigu": "continue",
-
+    "daŭrigi": "continue",
     # types:
     "listo": "list",
     "entjero": "int",  # nur "ent"?
@@ -63,38 +54,33 @@ esperanto_keywords = {
     "bulea": "bool",  # aŭ buleo?
     "teksto": "str",  # signoĉeno
     "aro": "set()",  # TODO forigu parentezojn?
-    'object': 'objekto',  # TODO interŝanĝi?
-
+    "object": "objekto",  # TODO interŝanĝi?
     # imports
     "el": "from",
-    "importu": "import",
+    "importi": "import",
     "kiel": "as",
-
     # classes and functions
-    "redonu": "return",
-    "מחלקה": "class",
+    "redoni": "return",
+    "klaso": "class",
     "malloka": "global",
     "dif": "def",
-    "עבור": "pass",
-    "צור": "yield",
-
+    "pasi": "pass",
+    "doni": "yield",
     # errors
-    "נסה": "try",
-    "ודא": "assert",
-    "זרוק": "raise",
-    "תפוס": "except",
+    "provi": "try",
+    "aserti": "assert",
+    "altigi": "raise",  # aŭ levi?
+    "trakti": "except",  # aŭ krom?
     "fine": "finally",
-    
     # list
-    "עגל": "round()",
-    "פרוסה": "slice()",
-    "מיין": "sorted()",
-    "סכום": "sum()",
-    "סוג": "type()",
-
+    "rondigi": "round()",
+    "tranĉaĵo": "slice()",
+    "ordigita": "sorted()",
+    "sumo": "sum()",
+    "tipo": "type()",
     #
-    'kun': "with",
-    "forigu": "del",
+    "kun": "with",
+    "forigi": "del",
     "lambda": "lambda",
     "lokaj": "locals()",
 }

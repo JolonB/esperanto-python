@@ -1,72 +1,74 @@
 # esperanto-python
-esperanto-python is a python library (with commandline utities) for programming python in Esperanto.
-(Yes, it is really possible!)
 
-esperanto-python
-runs in Python 3.6+ (because `ideas` runs in Python 3.6+)
+esperanto-python is a Python library (with command line utities) for programming Python in Esperanto.
 
+esperanto-python runs in Python 3.6+ (because `ideas` runs in Python 3.6+)
 
 After downloading this library you can write a script like:
+
 ```python
-מתוך בנוי.אקראי יבא מספר_אקראי
-משתנה_כלשהו = מספר_אקראי(1,9)
-הראה(משתנה_כלשהו)
+de random importi randint
+hazarda_nombro = randint(1,9)
+presi(hazarda_nombro)
 ```
-Name the file `something.eopy` and run it with `eopy something.eopy`.
+
+Name the file `my_file.eopy` and run it with `eopy my_file.eopy`.
 
 You can also import other `.eopy` and `.py` files from the main file:
-```Python
-יבא something
+
+```python
+importi my_file
 ```
 
 ## Installing
-To install with pip
-type in terminal:
+
+To install with pip, run the following command:
+
 ```shell
 pip install "esperanto-python[errors]"
 ```
+
 and for non-errors support (without friendly-traceback):
+
 ```shell
 pip install esperanto-python
 ```
-This will create the commandline script:`eopy`
+
+This will create the command line script:`eopy`
 
 ## Usage
+
 You can run eopy files with `eopy <file>`
 
 You can start Esperanto Python console with just `eopy`
 
 ## `.eopy` file syntax
-`.eopy` file supports esperanto python syntax (syntax with keywords like `יבא`(import)  
-and functions like `הראה` (print))
-in additional to normal python syntax
 
-## Use from normal python file/repl
-You can use as library:
+`.eopy` file supports esperanto python syntax (syntax with keywords like `importi` (import) and functions like `presi` (print)) in additional to normal Python syntax.
 
-to import `.eopy` files into your `.py` file:
+## Use from normal Python file/repl
+
+To import `.eopy` files into your `.py` file:
+
 ```python
 from esperanto_python import create_hook
 create_hook(run_module=False, console=False) # without running main module or starting repl
-import eopy_module # now you can import .eopy files
+import my_file  # now you can import .eopy files
 ```
 
-or to start repl from normal repl:
+or to start eopy repl from normal repl:
+
 ```python
 from esperanto_python import create_hook
 create_hook(run_module=True, console=True) # *with* starting repl
 ```
+
 ## jupyter/ipython
 
-`esperanto-python` support [jupyter](https://jupyter.org) and [ipython](https://ipython.org/) intercative console by ipython extension. to use:
+`esperanto-python` supports [jupyter](https://jupyter.org) and [ipython](https://ipython.org/) intercative console by ipython extension.
 
-install jupyter-notebook by : `pip install notebook`  
-start jupyter-notebook by : `jupyter notebook`.
-then create new python3 by the new button.
-
-on the first cell enter the text `%load_ext esperanto_python` and pross contoll+enter.
-
-and then you can write esperanto-python in all notebook
+To use it, install jupyter-notebook with `pip install notebook` and start with `jupyter notebook`.
+In the first cell enter the text `%load_ext esperanto_python` and press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> and then you can use esperanto-python in the notebook.
 
 ## Dependencies
 

@@ -20,10 +20,13 @@ esperanto_builtins = {
     "PermesoEraro": "PermissionError",
     "Escepto": "Exception",
     "DosieroNeTrovitaEraro": "FileNotFoundError",
+    "RultempoEraro": "RuntimeError",
     # strings
-    "repr": "repr",  # TODO is this the best translation?
+    "repr": "repr",
     "ekzek": "exec",
     "malfermi": "open",
+    # others
+    "__nomo__": "__name__",
 }
 
 # keywords:
@@ -53,8 +56,8 @@ esperanto_keywords = {
     "Nul": "None",
     "bulea": "bool",  # aŭ buleo?
     "teksto": "str",  # signoĉeno
-    "aro": "set()",  # TODO forigu parentezojn?
-    "object": "objekto",  # TODO interŝanĝi?
+    "aro": "set",
+    "objekto": "object",
     # imports
     "el": "from",
     "importi": "import",
@@ -73,14 +76,15 @@ esperanto_keywords = {
     "trakti": "except",  # aŭ krom?
     "fine": "finally",
     # list
-    "rondigi": "round()",
-    "tranĉaĵo": "slice()",
-    "ordigita": "sorted()",
-    "sumo": "sum()",
-    "tipo": "type()",
+    "rondigi": "round",
+    "tranĉaĵo": "slice",
+    "ordigita": "sorted",
+    "sumo": "sum",
+    "tipo": "type",
+    "estasklaso": "isinstance",
     #
     "kun": "with",
     "forigi": "del",
     "lambda": "lambda",
-    "lokaj": "locals()",
+    "lokaj": "locals",
 }

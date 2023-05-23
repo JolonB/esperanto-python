@@ -2,14 +2,18 @@
 
 esperanto-python is a Python library (with command line utities) for programming Python in Esperanto.
 
-esperanto-python runs in Python 3.6+ (because `ideas` runs in Python 3.6+)
+esperanto-python runs in Python 3.7+.
 
 After downloading this library you can write a script like:
 
 ```python
-de random importi randint
-hazarda_nombro = randint(1,9)
-presi(hazarda_nombro)
+el random importi random, randint
+se teksto(randint(1800,2100)) en aro(["1887", "2023"]):
+    presi("saluton")
+alse estasklaso(rondigi(random()) == 0, bulea):  # ĉiam Vera
+    presi("mondo")
+alie:
+    altigi RultempoEraro("io misfunkciis")
 ```
 
 Name the file `my_file.eopy` and run it with `eopy my_file.eopy`.

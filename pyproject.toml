@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "esperanto_python"
 version = "0.1.0"
-description = "write python in Esperanto"
+description = "Write Python in Esperanto"
 authors = ["JolonB <jolon.behrent@gmail.com>"]
 license = "BSD-4-Clause"
 readme = "README.md"
 homepage = "https://github.com/JolonB/esperanto-python"
+repository = "https://github.com/JolonB/esperanto-python"
+# documentation = ""
+keywords = ["esperanto", "translation", "python", "repl"]
 
 [tool.poetry.dependencies]
 python = "^3.7" # main

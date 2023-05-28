@@ -4,7 +4,7 @@ esperanto-python is a Python library (with command line utities) for programming
 
 esperanto-python runs in Python 3.7+.
 
-After downloading this library you can write a script like:
+With this library you can write a script like:
 
 ```python
 el random importi random, randint

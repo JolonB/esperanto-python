@@ -21,7 +21,7 @@ rich = "^13.3.5" # 12.6.0 is compatible with Python3.6
 friendly-traceback = { version ="^0.4.36",optional = true}
 
 [tool.poetry.extras]
-    errors = ["friendly","friendly-traceback"]
+errors = ["friendly","friendly-traceback"]
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

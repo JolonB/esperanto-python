@@ -1,5 +1,5 @@
 import builtins
-import json
+import keyword
 import logging
 import os
 import sys
@@ -87,8 +87,15 @@ def setup(with_excepthook=True):
         french.fr_to_py = json.load(io)
     with open(os.path.join(cdir, "esperanto_builtins.json")) as io:
         str_esperanto_builtins: dict = json.load(io)"""
+    esperanto_keywords = {}
+    for esperanto_kw, english_kw in esperanto_data.esperanto_keywords.items():
+        if keyword.iskeyword(english_kw):
+            esperanto_keywords[esperanto_kw] = english_kw
+        else:
+            logging.warning(f"cannot find keyword: '{english_kw}'")
+    french.fr_to_py = esperanto_keywords
+
     str_esperanto_builtins = esperanto_data.esperanto_builtins
-    french.fr_to_py = esperanto_data.esperanto_keywords
     for k, v in str_esperanto_builtins.items():
         k: str
         v: str
